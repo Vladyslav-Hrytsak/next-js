@@ -1,7 +1,7 @@
 import UsersComponent from "@/components/users-component/UsersComponent";
 
 
-const UsersPage = async () => {
+const UsersPage =  () => {
 
     return (
         <UsersComponent/>

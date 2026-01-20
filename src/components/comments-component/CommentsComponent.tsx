@@ -11,7 +11,7 @@ const CommentsComponent =async () => {
             <li>
                 {comments.map( comment => (
                     <li key={comment.id}>
-                        <Link href = {`/comments/${comment.id}`}>{comment.name}</Link>
+                        <Link href = {{pathname: `/comments/${comment.id}`, query:{data: JSON.stringify(comment)}}}>{comment.name}</Link>
                         <hr/>
 
                     </li>

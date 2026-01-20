@@ -11,7 +11,7 @@ const UsersComponent = async () => {
             <ul>
                 {users.map((user) => (
                     <li key={user.id}>
-                        <Link href={`/users/${user.id}`}>{user.name}</Link>
+                        <Link href={{pathname: `/users/${user.id}`, query:{data:JSON.stringify(user)}}}>{user.name}</Link>
                     </li>
                 ))}
             </ul>

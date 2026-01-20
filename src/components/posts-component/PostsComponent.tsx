@@ -11,7 +11,7 @@ const PostsComponent = async () => {
             <ul>
                 {posts.map((post) => (
                     <li key={post.id}>
-                        <Link href={`/posts/${post.id}`}>{post.title}</Link>
+                        <Link href={{pathname: `/posts/${post.id}`, query:{data: JSON.stringify(post)}}}>{post.title}</Link>
                         <hr/>
                     </li>
                 ))}

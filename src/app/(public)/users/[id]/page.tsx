@@ -1,21 +1,27 @@
-import { apiService } from "@/service/api.service";
+import {SearchParams} from "next/dist/server/request/search-params";
+import {IUsers} from "@/models/IUsers";
 
 interface Props {
-    params: {
-        id: string;
-    };
+    searchParams:Promise<SearchParams>
 }
 
-const UserDetailsPage = async ({ params }: Props) => {
-    const {id} = await params
-    const user = await apiService.getUserById(id);
+const UserDetailsPage = async ({searchParams}: Props) => {
+
+    const {data} = await searchParams;
+    let obj = null
+    if (typeof data === "string") {
+        obj = JSON.parse(data) as IUsers
+    }
 
     return (
         <div>
-            <h1>{user.name}</h1>
-            <p>Email: {user.email}</p>
-            <p>Phone: {user.phone}</p>
-            <p>Website: {user.website}</p>
+            {obj &&
+                <>
+                    <p>Name: {obj.name}</p>
+                    <p>Email: {obj.email}</p>
+                </>
+
+            }
         </div>
     );
 };
