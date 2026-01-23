@@ -6,7 +6,9 @@ export default function Home() {
   return (
     <div className={styles.page}>
 
-        <Link href={'/cars'}><button style={{ padding: '30px' }}>CARS</button></Link>
+        <Link href={'/cars'}><button style={{ padding: '30px', marginRight:'30px'}}>CARS</button></Link>
+        <Link href={'/add-cars'}><button style={{ padding: '30px' }}>ADD CARS</button></Link>
+
 
     </div>
   );

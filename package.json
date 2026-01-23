@@ -13,7 +13,8 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "axios": "^1.13.2",
-    "axios-hooks": "^5.1.1"
+    "axios-hooks": "^5.1.1",
+    "react-hook-form": "^7.71.1"
   },
   "devDependencies": {
     "@types/node": "^20",
