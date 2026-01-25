@@ -1,19 +1,14 @@
 "use server";
 
-import {CarFormData} from "@/models/CarFormData";
-import {createCar} from "@/services/api.service";
-import {revalidatePath} from "next/cache";
-import {redirect} from "next/navigation";
+import { CarFormData } from "@/models/CarFormData";
+import { createCar } from "@/services/api.service";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
-export async function createCarAction(formData: FormData) {
-    const car: CarFormData = {
-        brand: formData.get("brand") as string,
-        price: Number(formData.get("price")),
-        year: Number(formData.get("year")),
-    };
-
+export async function createCarAction(car: CarFormData) {
 
     await createCar(car);
+
     revalidatePath("/cars");
     redirect("/cars");
 }
